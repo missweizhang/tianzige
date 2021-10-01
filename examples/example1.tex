@@ -1,23 +1,21 @@
 \documentclass[12pt, letterpaper]{article}
 
-\usepackage[fontsize=26, textcolor=lightgray, gridcolor=green, pycolor=brown, mizige]{tianzige}
+\usepackage[fontsize=32, textcolor=lightgray, gridcolor=green, pycolor=brown, mizige]{tianzige}
 \usepackage[left=0.5in, right=0.5in, top=0.5in, bottom=0.7in]{geometry}
 
 \setCJKmainfont{KaiTi}
 \begin{document}
 
-\pygrid[fontsize=52]{天}{tian1} \pygrid[fontsize=52]{}{tian1} \pygrid[fontsize=52]{}{xiang4} \pygrid[fontsize=52]{}{shang4} \\
+\centering 
+\pygrid[fontsize=52]{彩}{tian1} \pygrid[fontsize=52]{虹}{hong2} \\ 
+~\\ ~\\
 
-\makeatletter % allow access to \@ variable
-\renewcommand{\@charsize}{34} % ADVANCED: change the fontsize for tianzige only in this section
-\grid[grid=false, color=red]{红} \pygrid[pycolor=red, color=lightgray]{红}{hong2} 
+\grid[grid=false, color=red]{红} \pygrid[pycolor=red, color=lightgray]{}{hong2} 
 \grid[grid=false, color=orange]{橙} \pygrid[pycolor=orange, color=lightgray]{}{cheng2} 
 \grid[grid=false, color=yellow]{黄} \pygrid[pycolor=yellow, color=lightgray]{}{huang2} 
 \grid[grid=false, color=green]{绿} \pygrid[pycolor=green, color=lightgray]{}{lv4} 
 \grid[grid=false, color=blue]{蓝} \pygrid[pycolor=blue, color=lightgray]{}{lan2} 
 \grid[grid=false, color=violet]{靛} \pygrid[pycolor=violet, color=lightgray]{}{dian4} 
 \grid[grid=false, color=purple]{紫} \pygrid[pycolor=purple, color=lightgray]{}{zi3} 
-\renewcommand{\@charsize}{26} % change the fontsize back
-%\grid{color=red}{红} \pygrid{pycolor=red, color=red}{红}{hong2}
 
 \end{document}
