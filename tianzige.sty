@@ -1,0 +1,74 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tianzige}[2021/09/30 Tianzige helper]
+
+\RequirePackage{xeCJK}
+\RequirePackage{xpinyin}
+\RequirePackage{xkeyval}
+\RequirePackage{ifthen}
+\RequirePackage{tikz}
+\usetikzlibrary{fit}
+
+\newcommand{\@gridcolor}{red}
+\DeclareOptionX{gridcolor}{\renewcommand{\@gridcolor}{#1}}
+
+\newcommand{\@charcolor}{lightgray}
+\DeclareOptionX{textcolor}{\renewcommand{\@charcolor}{#1}}
+
+\newcommand{\@pycolor}{black}
+\DeclareOptionX{pycolor}{\renewcommand{\@pycolor}{#1}}
+
+\newcommand{\@charsize}{24}
+\DeclareOptionX{fontsize}{\renewcommand{\@charsize}{#1}}
+
+\newcommand{\@hasgrid}{1}
+\DeclareOptionX{nogrid}{\renewcommand{\@hasgrid}{0}}
+
+\newif\if@mizige
+\@mizigefalse % 田字格
+\DeclareOptionX{mizige}{\@mizigetrue} % 米字格
+
+\ProcessOptionsX\relax
+
+% options for commands \grid and \pygrid
+\define@cmdkey      [PRE] {fam}     {color}  {}
+\define@cmdkey      [PRE] {fam}     {pycolor}  {}
+\define@cmdkey      [PRE] {fam}     {grid}  {}
+\define@cmdkey      [PRE] {fam}     {fontsize}  {}
+\define@cmdkey      [PRE] {fam}     {gridraiseamount}  {}
+\presetkeys         [PRE] {fam} {color = \@charcolor, 
+				pycolor = \@pycolor, 
+				grid=\@hasgrid, % 0 for no grid
+				fontsize=\@charsize,
+				gridraiseamount=0.12em,
+                                            }{}
+
+\newcommand{\grid}[2][]{%田字格 #1=options, #2=漢字(single)
+\setkeys[PRE]{fam}{#1}%
+{\fontsize{\cmdPRE@fam@fontsize}{\cmdPRE@fam@fontsize}%
+\begin{tikzpicture}[baseline=(char.base)]
+\tikzstyle help lines=[color=\@gridcolor!50,thin,opacity=\cmdPRE@fam@grid];
+\path[use as bounding box] (0,0) rectangle (1em,1em);%外框
+\draw[help lines,step=0.5em] (0,0) grid (1em,1em);%田字格
+\if@mizige%
+\draw[help lines,dashed] (0,0) -- (1em,1em)  (0,1em) -- (1em,0);%米字格
+\fi%
+\node[inner sep=0pt,anchor=base west] 
+     (char) at (0em,\cmdPRE@fam@gridraiseamount) {\textcolor{\cmdPRE@fam@color}{#2}};
+\end{tikzpicture}}}
+
+\newcommand{\pygrid}[3][]{%拼音田字格 #1=options, #2=漢字(single), #3=拼音
+\setkeys[PRE]{fam}{#1}%
+{\fontsize{\cmdPRE@fam@fontsize}{\cmdPRE@fam@fontsize}%
+\begin{tikzpicture}[baseline=(char.base)]
+\tikzstyle help lines=[color=\@gridcolor!50,thin,opacity=\cmdPRE@fam@grid];
+\path[use as bounding box] (0,0) rectangle (1em,1.6em);%外框
+\draw[help lines,step=0.5em] (0,0) grid (1em,1em);%田字格
+\if@mizige%
+\draw[help lines,dashed] (0,0) -- (1em,1em)  (0,1em) -- (1em,0);%米字格
+\fi%
+\node[inner sep=0pt,anchor=base west] 
+     (char) at (0em,\cmdPRE@fam@gridraiseamount) {\textcolor{\cmdPRE@fam@color}{#2}};
+\node[rectangle,fill,opacity=0,inner sep=0pt,fit={(0em,1em) (1em,1.2em)}] (pybox) {};
+\node[anchor=base,font=\large] at (pybox.center) {\textcolor{\cmdPRE@fam@pycolor}{\pinyin{#3}}};
+\end{tikzpicture}}}
+
