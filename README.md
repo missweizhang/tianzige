@@ -28,6 +28,8 @@ Now you are ready to use the `tianzige` package in your latex code.
 
 Including the `tianzige` package in your latex document allows you to use the `\grid` and `\pygrid` commands which draws a grid to enclose a Chinese character given as argument to he command.  You may specify options upon including the package to specify the style of the grid and the font size and color of the character enclosed.
 
+Note: The `.tex` document that includes the `tianzige` package must be compiled using `XeLaTeX`.
+
 ## Usage: `tianzige` package options
 
 Characters for tracing in mizige:
@@ -39,32 +41,55 @@ Characters displayed in tianzige:
 Characters displayed in black without grid:
 `\usepackage[fontsize=24, textcolor=black, nogrid]{tianzige}`
 
-
-## Options Details
+## `tianzige` package options details
 
 Options can be written in any order.
 
-### Options as key/value pairs
+### `tianzige` package regular options
+Option | Default | Details 
+------ | ------- | ------
+`mizige` | off | show mizige instead of tianzige
+`nogrid` | off | do not show tianzige or mizige, will override `gridcolor`
+
+### `tianzige` package options as key/value pairs
 
 Option | Values | Default | Details 
 ------ | ------ | ------- | ------
 `fontsize` | `<numeric>` | `24` | size of the Chinese character
 `textcolor` | [`<colors>`](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX#Named_colours_provided_by_the_xcolor_package) | `lightgray` |color of the Chinese character
 `gridcolor` | [`<colors>`](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX#Named_colours_provided_by_the_xcolor_package) | `red` | color of the tianzige or mizige grid
-pycolor | [`<colors>`](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX#Named_colours_provided_by_the_xcolor_package) | `black` | color of pinyin
-
-### Regular options
-Option | Default | Details 
------- | ------- | ------
-`mizige` | off | show mizige instead of tianzige
-`nogrid` | off | do not show tianzige or mizige, will override `gridcolor`
-
+`pycolor` | [`<colors>`](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX#Named_colours_provided_by_the_xcolor_package) | `black` | color of pinyin
 
 ## Usage: `\grid` and `\pygrid` commands
-In the ensuing document that has included the `tianzige` package, use the following commands to tianzige or mizige.
+The document that includes the `tianzige` package is free to call the following commands to draw tianzige or mizige.
 
 `\grid{}` draws an empty grid
 
 `\grid{天}` draws a grid enclosing the character 天
 
 `\pygrid{天}{tian1}` draws a grid enclosing the character 天 and includes its pinyin above the character
+
+`\pygrid{}{tian1}` draws an empty grid with pinyin above the grid
+
+## Use `\grid` and `\pygrid` commands with options
+
+The commands `\grid` and `\pygrid` share most options except `pycolor`.  Options are accepted as the first argument in `[]` brackets as key-value pairs.
+
+`\pygrid[fontsize=52]{天}{tian1}` draws a grid enclosing a size-52 character 天
+
+`\grid[grid=false, color=red]{红}` draws the character 红 in red without a grid
+
+`\pygrid[pycolor=red, color=lightgray]{}{hong2}` draws a red grid enclosing the character 红 in lightgray
+
+### `\grid` and `\pygrid` command option details
+
+Options can be written in any order.
+
+Option | Values | Default | Details 
+------ | ------ | ------- | ------
+`fontsize` | `<numeric>` | `24` | size of the Chinese character
+`color` | [`<colors>`](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX#Named_colours_provided_by_the_xcolor_package) | `lightgray` |color of the Chinese character
+`pycolor` | [`<colors>`](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX#Named_colours_provided_by_the_xcolor_package) | `black` | color of pinyin
+`grid` | `true` or `false` | `true` | color of the tianzige or mizige grid
+
+
