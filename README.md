@@ -44,14 +44,14 @@ Options have no particular order.
 
 Option | Values | Default | Details 
 ------ | ------ | ------- | ------
-fontsize | `<numeric>` | 24 | size of the Chinese character
-textcolor | [`<colors>`](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX#Named_colours_provided_by_the_xcolor_package) | lightgray |color of the Chinese character
-gridcolor | [`<colors>`](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX#Named_colours_provided_by_the_xcolor_package) | red | color of the tianzige or mizige grid
-pycolor | [`<colors>`](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX#Named_colours_provided_by_the_xcolor_package) | black | color of pinyin
+`fontsize` | `<numeric>` | `24` | size of the Chinese character
+`textcolor` | [`<colors>`](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX#Named_colours_provided_by_the_xcolor_package) | `lightgray` |color of the Chinese character
+`gridcolor` | [`<colors>`](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX#Named_colours_provided_by_the_xcolor_package) | `red` | color of the tianzige or mizige grid
+pycolor | [`<colors>`](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX#Named_colours_provided_by_the_xcolor_package) | `black` | color of pinyin
 
 ### Regular options
 Option | Default | Details 
 ------ | ------- | ------
-mizige | off | show mizige instead of tianzige
-nogrid | off | do not show tianzige or mizige, will override `gridcolor`
+`mizige` | off | show mizige instead of tianzige
+`nogrid` | off | do not show tianzige or mizige, will override `gridcolor`
 
