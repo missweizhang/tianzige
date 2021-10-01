@@ -24,7 +24,11 @@ Now you are ready to use the `tianzige` package in your latex code.
 
 # Using the `tianzige` package in latex code
 
-## Example Usage
+## Overview
+
+Including the `tianzige` package in your latex document allows you to use the `\grid` and `\pygrid` commands which draws a grid to enclose a Chinese character given as argument to he command.  You may specify options upon including the package to specify the style of the grid and the font size and color of the character enclosed.
+
+## Usage: `tianzige` package options
 
 Characters for tracing in mizige:
 `\usepackage[fontsize=24, textcolor=lightgray, gridcolor=green, pycolor=blue, mizige]{tianzige}`
@@ -38,7 +42,7 @@ Characters displayed in black without grid:
 
 ## Options Details
 
-Options have no particular order.
+Options can be written in any order.
 
 ### Options as key/value pairs
 
@@ -55,3 +59,12 @@ Option | Default | Details
 `mizige` | off | show mizige instead of tianzige
 `nogrid` | off | do not show tianzige or mizige, will override `gridcolor`
 
+
+## Usage: `\grid` and `\pygrid` commands
+In the ensuing document that has included the `tianzige` package, use the following commands to tianzige or mizige.
+
+`\grid{}` draws an empty grid
+
+`\grid{天}` draws a grid enclosing the character 天
+
+`\pygrid{天}{tian1}` draws a grid enclosing the character 天 and includes its pinyin above the character
