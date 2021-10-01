@@ -1,37 +1,12 @@
-# Installation on MiKTeX in Windows
-
-## [Create a local TEXMF root directory](https://miktex.org/faq/local-additions)
-1. Create a local directory to store your latex package files, such as `C:\localtexmf\tex\latex\`, 
-
-2. Copy your `tianzige.sty` file into the local directory as
-`C:\localtexmf\tex\latex\tianzige\tianzige.sty`
-
-![image](https://user-images.githubusercontent.com/19189069/135584016-5caba78c-517d-455b-85d5-eb5addbf3b79.png)
-
-## [Register the local directory as the TEXMF root directory](https://miktex.org/howto/miktex-console)
-
-3. Start `MiKTeX Console`
-
-4. Click `Settings`
-
-5. Click the `Directories` tab.  
-
-6. Click the `Add` toolbar button,
-
-7. Select the TEXMF root directory `C:\localtexmf\tex\latex\` to add.
-
-![image](https://user-images.githubusercontent.com/19189069/135625437-f55c6205-5c00-4e84-b267-c49a4c2fe504.png)
-
-Now you are ready to use the `tianzige` package in your latex code.
-
-# Using the `tianzige` package in latex code
+# Using the `tianzige` package in LaTeX
 
 ## Overview
 
-Including the `tianzige` package in the beginning of your `.tex` document allows you to use the `\grid` and `\pygrid` commands.  The commands draw grids enclosing Chinese characters given as argument to the command.  
+Including the `tianzige` package in the beginning of your `.tex` document allows you to use the `\grid` and `\pygrid` commands.  These commands draw grids enclosing Chinese characters given as argument to the command.  
+
+You can simply include the `tianzige.sty` package file in the same directory as the `*.tex` file you wish to compile.  Instead, you may [install the `tianzige.sty` package locally](#installation-on-miktex-in-windows) so it is available to `*.tex` files in all directories.
 
 Note: The `.tex` document that includes the `tianzige` package must be compiled using `XeLaTeX`.
-
 
 
 ## Usage: `tianzige` package options
@@ -106,5 +81,32 @@ Option | Values | Default | Details
 
 See sourcefile [`example1.tex`](examples/example.tex)
 ![image](https://user-images.githubusercontent.com/19189069/135626024-d90ee59c-4cbb-4ab2-b9f9-e96865f7200d.png)
+
+
+# Installation on MiKTeX in Windows
+
+## [Create a local TEXMF root directory](https://miktex.org/faq/local-additions)
+1. Create a local directory to store your latex package files, such as `C:\localtexmf\tex\latex\`, 
+
+2. Copy your `tianzige.sty` file into the local directory as
+`C:\localtexmf\tex\latex\tianzige\tianzige.sty`
+
+![image](https://user-images.githubusercontent.com/19189069/135584016-5caba78c-517d-455b-85d5-eb5addbf3b79.png)
+
+## [Register the local directory as the TEXMF root directory](https://miktex.org/howto/miktex-console)
+
+3. Start `MiKTeX Console`
+
+4. Click `Settings`
+
+5. Click the `Directories` tab.  
+
+6. Click the `Add` toolbar button,
+
+7. Select the TEXMF root directory `C:\localtexmf\tex\latex\` to add.
+
+![image](https://user-images.githubusercontent.com/19189069/135625437-f55c6205-5c00-4e84-b267-c49a4c2fe504.png)
+
+Now you are ready to use the `tianzige` package in your latex code.
 
 
