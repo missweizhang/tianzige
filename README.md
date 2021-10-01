@@ -20,17 +20,23 @@
 
 7. Select the TEXMF root directory `C:\localtexmf\tex\latex\` to add.
 
+![image](https://user-images.githubusercontent.com/19189069/135625437-f55c6205-5c00-4e84-b267-c49a4c2fe504.png)
+
 Now you are ready to use the `tianzige` package in your latex code.
 
 # Using the `tianzige` package in latex code
 
 ## Overview
 
-Including the `tianzige` package in your latex document allows you to use the `\grid` and `\pygrid` commands which draws a grid to enclose a Chinese character given as argument to he command.  You may specify options upon including the package to specify the style of the grid and the font size and color of the character enclosed.
+Including the `tianzige` package in the beginning of your `.tex` document allows you to use the `\grid` and `\pygrid` commands.  The commands draw grids enclosing Chinese characters given as argument to the command.  
 
 Note: The `.tex` document that includes the `tianzige` package must be compiled using `XeLaTeX`.
 
+
+
 ## Usage: `tianzige` package options
+
+The `tianzige` package provides several options which specify the style of the grid and the font size and color of the character enclosed.
 
 Characters for tracing in mizige:
 `\usepackage[fontsize=24, textcolor=lightgray, gridcolor=green, pycolor=blue, mizige]{tianzige}`
@@ -75,11 +81,15 @@ The document that includes the `tianzige` package is free to call the following 
 
 The commands `\grid` and `\pygrid` share most options except `pycolor`.  Options are accepted as the first argument in `[]` brackets as key-value pairs.
 
+
+![image](https://user-images.githubusercontent.com/19189069/135627545-986a781c-7848-49cf-ac92-9dc55d448ccb.png)<br/>
 `\pygrid[fontsize=52]{天}{tian1}` draws a grid enclosing a size-52 character 天
 
+![image](https://user-images.githubusercontent.com/19189069/135627791-bc46306f-b190-4eb7-be68-d149bde74765.png)<br/>
 `\grid[grid=false, color=red]{红}` draws the character 红 in red without a grid
 
-`\pygrid[pycolor=red, color=lightgray]{}{hong2}` draws a red grid enclosing the character 红 in lightgray
+![image](https://user-images.githubusercontent.com/19189069/135627822-a0c0d131-99ff-4b5c-9e85-661b806f7b1d.png)<br/>
+`\pygrid[pycolor=red, color=lightgray]{}{hong2}` draws an empty grid with pinyin on top
 
 ### `\grid` and `\pygrid` command option details
 
@@ -91,5 +101,10 @@ Option | Values | Default | Details
 `color` | [`<colors>`](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX#Named_colours_provided_by_the_xcolor_package) | `lightgray` |color of the Chinese character
 `pycolor` | [`<colors>`](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX#Named_colours_provided_by_the_xcolor_package) | `black` | color of pinyin
 `grid` | `true` or `false` | `true` | color of the tianzige or mizige grid
+
+### Additional Example
+
+See sourcefile [`example1.tex`](examples/example.tex)
+![image](https://user-images.githubusercontent.com/19189069/135626024-d90ee59c-4cbb-4ab2-b9f9-e96865f7200d.png)
 
 
