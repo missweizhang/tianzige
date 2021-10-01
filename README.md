@@ -29,17 +29,29 @@ Now you are ready to use the `tianzige` package in your latex code.
 Characters for tracing in mizige:
 `\usepackage[fontsize=24, textcolor=lightgray, gridcolor=green, pycolor=blue, mizige]{tianzige}`
 
+Characters displayed in tianzige:
+`\usepackage[fontsize=24, textcolor=black, gridcolor=red, pycolor=brown]{tianzige}`
+
 Characters displayed in black without grid:
 `\usepackage[fontsize=24, textcolor=black, nogrid]{tianzige}`
 
 
 ## Options Details
 
-Option | Values | Details 
------- | ------ | ------
+Options have no particular order.
+
+### Options as key/value pairs
+
+Option | Values | Default | Details 
+------ | ------ | ------- | ------
 fontsize | `<numeric>` | size of the Chinese character
 textcolor | [`<colors>`](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX#Named_colours_provided_by_the_xcolor_package) | color of the Chinese character
 gridcolor | [`<colors>`](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX#Named_colours_provided_by_the_xcolor_package) | color of the tianzige or mizige grid
 pycolor | [`<colors>`](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX#Named_colours_provided_by_the_xcolor_package) | color of pinyin
-nogrid | N/A | do not show tianzige or mizige, will override `gridcolor`
+
+### Regular options
+Option | Default | Details 
+------ | ------- | ------
+mizige | off | show mizige instead of tianzige
+nogrid | off | do not show tianzige or mizige, will override `gridcolor`
 
